@@ -1,0 +1,147 @@
+:root{
+  --ground:#F2F4F7;--surface:#FFFFFF;--surface-2:#E9EDF2;--raise:#FBFCFD;
+  --ink:#141821;--ink-2:#48505F;--ink-3:#798493;
+  --line:#DBE1E9;--line-2:#C3CCD8;--accent:#1F3D6B;--accent-ink:#FFFFFF;
+  --ok:#166B4C;--ok-bg:#E2F1EA;--warn:#8A5A00;--warn-bg:#FAEFD8;--bad:#A5231B;--bad-bg:#FAE6E4;
+  --shadow:0 1px 2px rgba(20,24,33,.06),0 10px 30px -20px rgba(20,24,33,.35);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0C0F14;--surface:#141922;--surface-2:#1C222C;--raise:#1A2029;
+  --ink:#E8ECF3;--ink-2:#A6B0BF;--ink-3:#6E7889;
+  --line:#232B37;--line-2:#333D4C;--accent:#9FC0F0;--accent-ink:#0C0F14;
+  --ok:#6FD3A8;--ok-bg:#11261E;--warn:#E3B15C;--warn-bg:#2A2214;--bad:#F08A80;--bad-bg:#2C1917;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px -20px rgba(0,0,0,.9);}}
+:root[data-theme="dark"]{
+  --ground:#0C0F14;--surface:#141922;--surface-2:#1C222C;--raise:#1A2029;
+  --ink:#E8ECF3;--ink-2:#A6B0BF;--ink-3:#6E7889;
+  --line:#232B37;--line-2:#333D4C;--accent:#9FC0F0;--accent-ink:#0C0F14;
+  --ok:#6FD3A8;--ok-bg:#11261E;--warn:#E3B15C;--warn-bg:#2A2214;--bad:#F08A80;--bad-bg:#2C1917;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px -20px rgba(0,0,0,.9);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Commissioner",ui-sans-serif,system-ui,sans-serif;font-size:15.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Spectral",Georgia,serif;font-weight:600;margin:0;letter-spacing:-.012em;text-wrap:balance}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+
+/* шапка */
+.site{border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:0;z-index:10}
+.site .wrap{display:flex;align-items:center;gap:26px;height:58px}
+.logo{font-family:"Spectral",Georgia,serif;font-weight:600;font-size:19px;text-decoration:none;letter-spacing:-.01em}
+.site nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.site nav a{text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:600;
+  padding:7px 12px;border-radius:7px}
+.site nav a:hover{background:var(--surface-2);color:var(--ink)}
+.site nav a[aria-current="page"]{background:var(--surface-2);color:var(--ink)}
+.site nav a:focus-visible,.logo:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding:34px 0 80px}
+footer{border-top:1px solid var(--line);padding:24px 0 60px;color:var(--ink-3);font-size:12.5px}
+footer .wrap{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
+
+/* крошки */
+.crumbs{font-size:12.5px;color:var(--ink-3);margin-bottom:14px;display:flex;gap:7px;flex-wrap:wrap}
+.crumbs a{text-decoration:none;color:var(--ink-2)}
+.crumbs a:hover{text-decoration:underline}
+
+/* главная */
+.hero{padding:22px 0 6px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.02;margin-bottom:12px}
+.hero p{max-width:60ch;color:var(--ink-2);font-size:17px;margin:0}
+.nums{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:30px 0 34px}
+.nums div{background:var(--surface);padding:15px 16px}
+.nums b{display:block;font-family:"IBM Plex Mono",monospace;font-size:25px;font-weight:500;line-height:1.1}
+.nums span{font-size:11.5px;color:var(--ink-2)}
+@media (max-width:760px){.nums{grid-template-columns:repeat(3,1fr)}}
+
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:38px}
+.door{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;
+  text-decoration:none;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.door:hover{border-color:var(--line-2)}
+.door b{font-family:"Spectral",Georgia,serif;font-size:20px;font-weight:600}
+.door span{font-size:13.5px;color:var(--ink-2)}
+.door em{font-style:normal;font-size:12px;color:var(--accent);font-weight:700;margin-top:4px}
+
+/* сферы */
+.spheres{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:12px}
+.sphere{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  text-decoration:none;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.sphere .stripe{position:absolute;inset:0 auto 0 0;width:4px}
+.sphere:hover{border-color:var(--line-2)}
+.sphere em{font-style:normal;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;padding-left:10px}
+.sphere b{font-family:"Spectral",Georgia,serif;font-size:21px;font-weight:600;padding-left:10px}
+.sphere span{font-size:12.5px;color:var(--ink-2);padding-left:10px}
+
+/* справочник */
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 6px}
+.search{flex:1;min-width:220px;background:var(--surface);border:1px solid var(--line-2);border-radius:9px;
+  padding:11px 14px;font:500 14.5px/1 "Commissioner",sans-serif;color:var(--ink)}
+.search:focus{outline:2px solid var(--accent);outline-offset:1px}
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0 20px}
+.chip{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  font:600 12.5px/1 "Commissioner",sans-serif;padding:8px 12px;border-radius:20px;cursor:pointer}
+.chip[aria-pressed="true"]{color:#fff;border-color:transparent}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grp{margin-bottom:26px}
+.grp h2{font-size:22px;display:flex;align-items:baseline;gap:10px}
+.grp h2 i{font-style:normal;width:9px;height:9px;border-radius:3px;display:inline-block}
+.grp>p{margin:4px 0 12px;color:var(--ink-2);font-size:13.5px;max-width:78ch}
+.sub{margin:0 0 14px}
+.sub h3{font-size:16px;margin-bottom:3px}
+.sub p{margin:0 0 8px;font-size:12.5px;color:var(--ink-3);max-width:78ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:9px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;
+  text-decoration:none;display:flex;flex-direction:column;gap:5px}
+.card:hover{border-color:var(--line-2)}
+.card .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card .t b{font-size:15px;font-weight:700}
+.card .t u{text-decoration:none;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);white-space:nowrap}
+.card p{margin:0;font-size:12.5px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden}
+.empty{color:var(--ink-3);font-size:14px;padding:30px 0}
+
+/* страница навыка */
+.skillhead{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;
+  border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+.skillhead h1{font-size:clamp(28px,4.4vw,40px);line-height:1.06}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);border-radius:8px;
+  padding:7px 12px;font-size:13px;font-weight:600;background:var(--surface)}
+.badge b{font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:500}
+.lead{font-size:17px;color:var(--ink);max-width:70ch;margin:0 0 14px}
+.thesis{border-left:3px solid var(--line-2);padding:3px 0 3px 16px;color:var(--ink-2);font-style:italic;
+  max-width:70ch;margin:0 0 30px}
+.recs{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden}
+.rec{background:var(--surface);padding:15px 18px;display:grid;grid-template-columns:26px 1fr;gap:14px}
+.rec .n{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-3);padding-top:2px}
+.rec b{display:block;font-size:15px;font-weight:700;margin-bottom:3px}
+.rec p{margin:0;font-size:14px;color:var(--ink-2);max-width:72ch}
+.rec em{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:6px}
+.neighbours{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.nb{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:10px 14px;
+  text-decoration:none;font-size:13.5px;font-weight:600}
+.nb u{text-decoration:none;color:var(--ink-3);font-weight:400;font-family:"IBM Plex Mono",monospace;font-size:11px}
+.nb:hover{border-color:var(--line-2)}
+h2.sec{font-size:20px;margin:34px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+
+/* механика */
+.rules{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;margin:16px 0}
+.rules>div{background:var(--surface);padding:16px 18px}
+.rules b{display:block;font-size:15.5px;font-weight:700;margin-bottom:3px}
+.rules p{margin:0;color:var(--ink-2);font-size:14px;max-width:76ch}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--surface);margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{background:var(--surface-2);text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2);font-weight:700;padding:10px 14px;white-space:nowrap}
+td{padding:9px 14px;border-top:1px solid var(--line)}
+td:first-child{white-space:nowrap}
+.rk{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line-2);
+  vertical-align:-2px;margin-right:8px}
+p.note{font-size:12.5px;color:var(--ink-3);max-width:80ch}
